@@ -75,8 +75,8 @@ jobs:
 #            ${{ github.event.pull_request.body }}
 #          draft: false
 #          prerelease: false
-#      - name: Publish
+      - name: Publish
 #        if: steps.tag_check.outputs.exists_tag == 'false'
-#        run: |
-#          yarn lerna publish from-package --yes
+        run: |
+          yarn lerna publish from-package --yes
 
