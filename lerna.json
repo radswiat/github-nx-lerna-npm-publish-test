@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "parallel": true,
+  "stream": true,
+  "version": "independent",
+  "command": {
+    "version": {
+      "allowBranch": "release/*",
+      "conventionalCommits": true,
+      "registry": "https://registry.npmjs.org"
+    }
+  }
+}
