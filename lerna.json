@@ -8,8 +8,7 @@
   "command": {
     "version": {
       "allowBranch": "release/*",
-      "conventionalCommits": true,
-      "registry": "https://registry.npmjs.org"
+      "conventionalCommits": true
     }
   }
 }
