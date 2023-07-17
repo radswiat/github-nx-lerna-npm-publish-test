@@ -43,6 +43,9 @@ jobs:
       - name: Print Test Token
         run: |
           echo ${{NPM_TEST}}
+          echo ${{secrets.NPM_TEST}}
+          echo ${NPM_TEST}
+          echo ${secrets.NPM_TEST}
 
       - name: Publish
         env:
