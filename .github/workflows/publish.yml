@@ -94,4 +94,3 @@ jobs:
         run: |
           npm config set //registry.npmjs.org/:_authToken ${NPM_KEY}
           yarn lerna publish from-package --yes
-
