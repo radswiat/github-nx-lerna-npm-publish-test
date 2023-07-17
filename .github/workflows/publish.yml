@@ -76,21 +76,22 @@ jobs:
 #          draft: false
 #          prerelease: false
 
-      - name: Prepare
-        #        if: steps.tag_check.outputs.exists_tag == 'false'
-        run: |
-          git update-index --assume-unchanged .npmrc
-          git status
-          git add .
-          git commit -a -m 'Release [skip ci]' -n
-          git branch -D tmp
-          git checkout -b tmp
-          git remote update
-          git checkout master
-          git merge tmp
+#      - name: Prepare
+#        #        if: steps.tag_check.outputs.exists_tag == 'false'
+#        run: |
+#          git update-index --assume-unchanged .npmrc
+#          git status
+#          git add .
+#          git commit -a -m 'Release [skip ci]' -n
+#          git branch -D tmp
+#          git checkout -b tmp
+#          git remote update
+#          git checkout master
+#          git merge tmp
 
       - name: Publish
 #        if: steps.tag_check.outputs.exists_tag == 'false'
         run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_KEY}
           yarn lerna publish from-package --yes
 
