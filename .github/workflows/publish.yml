@@ -48,6 +48,7 @@ jobs:
       - name: Publish
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npm config set registry "https://registry.npmjs.com/"
           npm config set _authToken=${{secrets.NPM_TOKEN}}
