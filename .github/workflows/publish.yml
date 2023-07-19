@@ -1,16 +1,13 @@
 name: publish
 on:
-  push:
-    branches: ['main']
-  # When Release Pull Request is merged
-#  pull_request:
-#    branches:
-#      - master
-#    types: [closed]
+  pull_request:
+    branches:
+      - main
+    types: [closed]
 
 permissions:
   contents: write # for checkout and tag
-  pull-requests: write  # for comments
+  pull-requests: write # for comments
   packages: write # for publish
 
 jobs:
@@ -24,13 +21,13 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
-#      - name: Git Identity
-#        run: |
-#          git config --global user.name 'github-actions[bot]'
-#          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-#          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #      - name: Git Identity
+      #        run: |
+      #          git config --global user.name 'github-actions[bot]'
+      #          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      #          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+      #        env:
+      #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install
         run: yarn install
 
@@ -39,7 +36,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           yarn lerna publish from-package --yes
-
 
 #      - name: Prepare
 #        #        if: steps.tag_check.outputs.exists_tag == 'false'
