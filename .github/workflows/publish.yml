@@ -5,11 +5,6 @@ on:
       - main
     types: [closed]
 
-permissions:
-  contents: write # for checkout and tag
-  pull-requests: write # for comments
-  packages: write # for publish
-
 jobs:
   publish:
     name: Publish
