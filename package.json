@@ -9,9 +9,9 @@
   "scripts": {
     "// Release commands": "=========================================================================",
     "versionup": "lerna version --conventional-commits --no-git-tag-version",
-    "postversionup": "npm run commit-version",
-    "commit-version": "git add . && git commit --no-verify -m \"chore(release): publish `node -p 'require(\"./lerna.json\").version'`\"",
-    "release": "lerna publish from-package"
+    "versionup:patch": "lerna version patch --conventional-commits --no-git-tag-version",
+    "versionup:minor": "lerna version minor --conventional-commits --no-git-tag-version",
+    "versionup:major": "lerna version major --conventional-commits --no-git-tag-version",
   },
   "devDependencies": {
     "@nrwl/cli": "latest",
