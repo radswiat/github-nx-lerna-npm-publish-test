@@ -21,13 +21,7 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
-      #      - name: Git Identity
-      #        run: |
-      #          git config --global user.name 'github-actions[bot]'
-      #          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-      #          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
-      #        env:
-      #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Install
         run: yarn install
 
@@ -36,16 +30,3 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           yarn lerna publish from-package --yes
-
-#      - name: Prepare
-#        #        if: steps.tag_check.outputs.exists_tag == 'false'
-#        run: |
-#          git update-index --assume-unchanged .npmrc
-#          git status
-#          git add .
-#          git commit -a -m 'Release [skip ci]' -n
-#          git branch -D tmp
-#          git checkout -b tmp
-#          git remote update
-#          git checkout master
-#          git merge tmp
